@@ -1,0 +1,39 @@
+<div class="table-filter">
+    <div class="row">
+        <div class="col-sm-4">
+            <button type="button" class="btn btn-primary"><i class="fa fa-search"></i></button>
+            <div class="filter-group">
+                <input [(ngModel)]="filters.keyword" name="keyword" (input)="getContacts()" placeholder="Taper une valeur de recherche" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="col-sm-8" style="padding: 6px; border-radius: 3px 3px 0 0;">
+            <a style="color: #fff; background-color: #4b5366;" routerLink="/login" class="btn btn-secondary"> <span>Se déconnecter</span></a>
+            <a routerLink="/add" class="btn btn-primary"><span>Ajouter contact</span></a>
+        </div>
+    </div>
+</div>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Nom</th>
+            <th>Email</th>
+            <th>Adresse</th>
+            <th>Telephone</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let contact of contacts;let indexOfelement=index;">
+            <td>{{indexOfelement+1}}</td>
+            <td>{{contact.name}}</td>
+            <td>{{contact.email}}</td>
+            <td>{{contact.adresse}}</td>
+            <td>{{contact.tel}}</td>
+            <td><a routerLink="/edit/{{contact.id_contact}}" class="view" title="Modifier contact" data-toggle="tooltip"><i class="material-icons">edit</i></a></td>
+            <td>
+                <a *ngIf=" contact.id_contact " (click)="deleteContact(contact.id_contact) " style="cursor: pointer; color: #df1212c4; " class="view " title="Supprimer contact " data-toggle="tooltip "><i class="material-icons ">delete</i></a>
+            </td>
+        </tr>
+    </tbody>
+</table>

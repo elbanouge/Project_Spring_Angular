@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <form (ngSubmit)="editContact()">
+                    <h2>Modifier un contact</h2>
+
+                    <fieldset class="form-group">
+                        <label>Nom de contact</label> <input type="text" name="name" [(ngModel)]="contact.name" class="form-control" placeholder="Taper votre nom" required="required">
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label>Adresse de contact</label> <input type="text" [(ngModel)]="contact.adresse" class="form-control" placeholder="Taper votre adresse" name="adresse">
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label>Email de contact</label> <input type="text" [(ngModel)]="contact.email" class="form-control" placeholder="Taper votre email" name="email">
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label>Telephone de contact</label> <input type="text" [(ngModel)]="contact.tel" class="form-control" placeholder="Taper votre tel" name="tel">
+                    </fieldset>
+
+                    <div class="col-md-12 bg-light text-right">
+                        <button type="reset" class="btn btn-warning">Annuler</button>
+                        <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
